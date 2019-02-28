@@ -1,0 +1,24 @@
+body {
+  background-color: #4286f4;
+}
+
+ .cont{
+  display: inline;
+  background-color: #41f450;
+  width: 3vw;
+  height: 4vw;
+  font-size: 4vw;
+  color: green;
+}
+
+#area {
+  background-color: white;
+  height: 100vh;
+}
+
+.newLets{
+  background-color: #41f450;
+  width: 3vw;
+  height: 4vw;
+  font-size: 4vw;
+}
