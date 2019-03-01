@@ -1,7 +1,6 @@
 function getRandomFont() {
   let fonts = ["Arial", "Arial Black", "Comic Sans MS", "Impact", "Lucida Sans Unicode", "Tahoma", "Trebuchet MS", "Verdana", "Georgia"];
     a = fonts[Math.floor(Math.random() * fonts.length)];
-    console.log(a);
   return a;
 }
 
