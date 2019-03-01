@@ -46,7 +46,7 @@ $(document).ready(function(){
   document.body.addEventListener('keyup', function(e) {
   	let index = disarmed.indexOf(e.keyCode);
   	if (index > -1) {
-      var $newLetter = $("<div class='cont ui-widget-content'>" + disarmed.splice(index, 1)[0] + "</div>").draggable().css({'background-color' : getRandomColor(), 'color' : getRandomColor(), 'font-family' : getRandomFont()});
+      var $newLetter = $("<div class='cont ui-widget-content'>" + String.fromCharCode(disarmed.splice(index, 1)[0]) + "</div>").draggable().css({'background-color' : getRandomColor(), 'color' : getRandomColor(), 'font-family' : getRandomFont()});
       $("#area").append($newLetter);
 	  }
   });
