@@ -29,11 +29,22 @@ $("#letters").children().each(function(){
     $(this).clone().draggable().css({'background-color' : getRandomColor(), 'color' : getRandomColor(), 'font-family' : getRandomFont()}).appendTo($("#area"));
   });
   
-  document.body.addEventListener('keydown', function(e){
-	
-	console.log(e.keyCode);
-	
-	
+
+let disarmed = [];
+
+document.body.addEventListener('keydown', function(e){
+	if (disarmed.indexOf(e.keyCode) > -1)
+		return;
+	// key first pressed
+	disarmed.push(e.keyCode);
+});
+
+document.body.addEventListener('keyup', function(e) {
+	let index = disarmed.indexOf(e.keyCode);
+	if (index > -1) {
+		disarmed.splice(index, 1);
+		console.log(e.key);
+	}
 });
   
  $("#clear").on('click', function(){
