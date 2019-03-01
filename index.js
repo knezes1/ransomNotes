@@ -29,6 +29,13 @@ $("#letters").children().each(function(){
     $(this).clone().draggable().css({'background-color' : getRandomColor(), 'color' : getRandomColor(), 'font-family' : getRandomFont()}).appendTo($("#area"));
   });
   
+  document.body.addEventListener('keydown', function(e){
+	
+	console.log(e.keyCode);
+	
+	
+});
+  
  $("#clear").on('click', function(){
    $("#area").empty();
  }); 
