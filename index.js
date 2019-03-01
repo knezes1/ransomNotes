@@ -15,8 +15,7 @@ function getRandomColor() {
 }
 
 $(document).ready(function(){
-
-  
+ 
   let magChrs = "ABCDEFGHIJKLMNOPQRSTUVWXYZ!?";
   for(var i = 0; i < magChrs.length; i++){
     $("#letters").append("<div class= 'cont ui-widget-content'>" + magChrs[i] + "</div>");
@@ -24,36 +23,34 @@ $(document).ready(function(){
   
   var newLetters = [];
 
-$("#letters").children().each(function(){
-  $(this).on('mousedown', function(){
-    $(this).clone().draggable().css({'background-color' : getRandomColor(), 'color' : getRandomColor(), 'font-family' : getRandomFont()}).appendTo($("#area"));
+  $("#letters").children().each(function(){
+    $(this).on('mousedown', function(){
+      $(this).clone().draggable().css({'background-color' : getRandomColor(), 'color' : getRandomColor(), 'font-family' : getRandomFont()}).appendTo($("#area"));
+    });  
   });
-  
 
-let disarmed = [];
+    
+  $("#clear").on('click', function(){
+    $("#area").empty();
+  }); 
 
-document.body.addEventListener('keydown', function(e){
-	if (disarmed.indexOf(e.keyCode) > -1)
-		return;
-	// key first pressed
-	disarmed.push(e.keyCode);
-});
+  let disarmed = [];
 
-document.body.addEventListener('keyup', function(e) {
-	let index = disarmed.indexOf(e.keyCode);
-	if (index > -1) {
-		disarmed.splice(index, 1);
-		console.log(e.key);
-	}
-});
-  
- $("#clear").on('click', function(){
-   $("#area").empty();
- }); 
-  
-  
-});
-});
+  document.body.addEventListener('keydown', function(e){
+  	if (disarmed.indexOf(e.keyCode) > -1)
+  		return;
+  	// key first pressed
+  	disarmed.push(e.keyCode);
+  });
 
+  document.body.addEventListener('keyup', function(e) {
+  	let index = disarmed.indexOf(e.keyCode);
+  	if (index > -1) {
+      var $newLetter = $("<div class='cont ui-widget-content'>" + disarmed.splice(index, 1)[0] + "</div>").draggable().css({'background-color' : getRandomColor(), 'color' : getRandomColor(), 'font-family' : getRandomFont()});
+      $("#area").append($newLetter);
+	  }
+  });
+
+});
 
 
